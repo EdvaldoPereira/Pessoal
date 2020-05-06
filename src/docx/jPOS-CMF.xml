@@ -17,7 +17,8 @@
       <year> 2007-2013 </year>
       <holder> Alejandro Revilla d/b/a jPOS.org </holder>
     </copyright>
-    <releaseinfo>&VERSION;</releaseinfo>
+    <!-- releaseinfo>&VERSION;</releaseinfo -->
+    <releaseinfo><?eval ${project.version}?></releaseinfo>
     <productname>&PRODUCTNAME;</productname>
   </info>
 

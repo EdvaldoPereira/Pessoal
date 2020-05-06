@@ -15,13 +15,13 @@
   <build>
     <plugins>
         <plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-release-plugin</artifactId>
-			<version>3.0.0-M1</version>
-			<configuration>
-				<tagNameFormat>v@{project.version}</tagNameFormat>
-			</configuration>
-		</plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-release-plugin</artifactId>
+		<version>3.0.0-M1</version>
+		<configuration>
+			<tagNameFormat>v@{project.version}</tagNameFormat>
+		</configuration>
+	</plugin>
       <plugin>
         <groupId>com.agilejava.docbkx</groupId>
         <artifactId>docbkx-maven-plugin</artifactId>
@@ -46,7 +46,12 @@
           <fop1Extensions>1</fop1Extensions>
           <highlightSource>1</highlightSource>
           <foCustomization>src/docbkx-stylesheet/fo/docbook.xsl</foCustomization>
-          
+          <entities>
+            <entity>
+              <name>version</name>
+              <value>${project.version}</value>
+            </entity>
+          </entities>
           <customizationParameters>
             <!-- additional XSLT parameters-->
             <parameter>
