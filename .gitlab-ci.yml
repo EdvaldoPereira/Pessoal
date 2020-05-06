@@ -1,0 +1,76 @@
+image: maven:3.6.3-jdk-11
+
+variables:
+  MAVEN_OPTS: -Dhttps.protocols=TLSv1.2 -Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true
+  MAVEN_CLI_OPTS: --batch-mode --errors --fail-fast --show-version
+
+download m2:
+  stage: .pre
+  script:
+    - mvn $MAVEN_CLI_OPTS dependency:go-offline
+  cache:
+    key: $CI_COMMIT_REF_SLUG # per-branching cache
+    policy: push # skip the download step
+    paths:
+      - .m2/repository
+
+# For merge requests do not `deploy` but only run `verify`.
+# See https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
+.verify: &verify
+  stage: test
+  script:
+    - mvn $MAVEN_CLI_OPTS verify
+  except:
+    - master
+
+# Verify merge requests using JDK8
+verify:jdk8:
+  <<: *verify
+
+build:
+  stage: build
+  before_script:
+    - git version
+    - git config --global user.email "$GITLAB_USER_EMAIL"
+    - git config --global user.name "$GITLAB_USER_NAME"
+    - git checkout -B "$CI_BUILD_REF_NAME"
+  script:
+    - mvn $MAVEN_CLI_OPTS -DdryRun=true release:prepare-with-pom
+    - mvn help:evaluate -Dexpression=project.version -q -DforceStdout -f release-pom.xml | tee release.version
+    - mvn help:evaluate -Dexpression=project.artifactId -q -DforceStdout -f release-pom.xml | tee release.artifactId
+    - mvn $MAVEN_CLI_OPTS release:clean
+    - mvn $MAVEN_CLI_OPTS -Dusername="$GITLAB_USER_LOGIN" -Dpassword="$GITLAB_TOKEN" -DscmCommentPrefix="[skip ci]" release:prepare
+  cache:
+    key: $CI_COMMIT_REF_SLUG # per-branching cache
+    policy: pull # skip the upload step
+    paths:
+      - .m2/repository
+  artifacts:
+    name: $CI_COMMIT_REF_SLUG
+    paths:
+      - release.version
+      - release.artifactId
+      - target/*.jar
+      - target/lib/
+  only:
+    - master
+
+deploy:
+  image: docker
+  stage: deploy
+  services:
+    - docker:dind
+  before_script:
+    - docker info
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    - NAME="$(cat release.artifactId)"
+    - TAG="$(cat release.version)"
+    - docker build -t "$CI_REGISTRY_IMAGE/$NAME:$TAG" -t "$CI_REGISTRY_IMAGE/$NAME" .
+    - docker push "$CI_REGISTRY_IMAGE/$NAME"
+  needs:
+    - job: build
+      artifacts: true
+  cache: {} # no cache
+  only:
+    - master
