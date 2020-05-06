@@ -8,7 +8,7 @@
   <packaging>pom</packaging>
 
   <scm>
-    <connection>scm:git:https://gitlab.com/bit55/apps/bacen/data-importer.git</connection>
+    <connection>scm:git:https://gitlab.com/bit55/apps/authorization/jpos-cmf.git</connection>
     <tag>HEAD</tag>
   </scm>
 
