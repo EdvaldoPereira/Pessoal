@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE appendix [
+<!ENTITY % constants SYSTEM "constants.ent" >
+%constants;
+]>
+
+<appendix xml:id="result_codes" xmlns="http://docbook.org/ns/docbook" version="5.0">
+ <title>Result codes</title>
+ <para> The following table specifies the Result Codes associated with DE 039 (see <xref
+   linkend="S.de_039"/>). </para>
+
+ <table frame="all">
+  <title>Result codes</title>
+  <tgroup cols="2" align="left" colsep="1" rowsep="1">
+   <colspec colname="c1" colwidth="2*"/>
+   <colspec colname="c2" colwidth="6*"/>
+   <thead>
+    <row>
+     <entry>Code</entry>
+     <entry>Description</entry>
+    </row>
+   </thead>
+   <tbody>
+    <row>
+     <entry>0000</entry>
+     <entry>Transaction Approved</entry>
+    </row>
+    <row>
+     <entry>0001</entry>
+     <entry>Honor with identification</entry>
+    </row>
+    <row>
+     <entry>0002</entry>
+     <entry>Approved for partial amount</entry>
+    </row>
+    <row>
+     <entry>0003</entry>
+     <entry>Approved (VIP)</entry>
+    </row>
+    <row>
+     <entry>1001</entry>
+     <entry>Card Expired</entry>
+    </row>
+    <row>
+     <entry>1002</entry>
+     <entry>Card Suspicious</entry>
+    </row>
+    <row>
+     <entry>1003</entry>
+     <entry>Contact acquirer</entry>
+    </row>
+    <row>
+     <entry>1004</entry>
+     <entry>Restricted card</entry>
+    </row>
+    <row>
+     <entry>1005</entry>
+     <entry>Contact Acquirer Security</entry>
+    </row>
+    <row>
+     <entry>1006</entry>
+     <entry>Allowable PIN tries exceeded</entry>
+    </row>
+    <row>
+     <entry>1007</entry>
+     <entry>Refer to card issuer</entry>
+    </row>
+    <row>
+     <entry>1008</entry>
+     <entry>Refer to card issuer - special conditions</entry>
+    </row>
+    <row>
+     <entry>1009</entry>
+     <entry>Invalid card acceptor</entry>
+    </row>
+    <row>
+     <entry>1011</entry>
+     <entry>Invalid card number</entry>
+    </row>
+    <row>
+     <entry>1012</entry>
+     <entry>PIN data required</entry>
+    </row>
+    <row>
+     <entry>1013</entry>
+     <entry>Unacceptable fee</entry>
+    </row>
+    <row>
+     <entry>1014</entry>
+     <entry>No account of type requested</entry>
+    </row>
+    <row>
+     <entry>1015</entry>
+     <entry>Requested function not supported</entry>
+    </row>
+    <row>
+     <entry>1016</entry>
+     <entry>Not Sufficient Funds</entry>
+    </row>    
+    <row>
+     <entry>1017</entry>
+     <entry>Incorrect PIN</entry>
+    </row>
+    <row>
+     <entry>1018</entry>
+     <entry>Previously Reversed</entry>
+    </row>    
+    <row>
+     <entry>1019</entry>
+     <entry>Further activity prevents reversal</entry>
+    </row> 
+    <row>
+     <entry>1020</entry>
+     <entry>Further activity prevents void</entry>
+    </row> 
+    <row>
+     <entry>1021</entry>
+     <entry>Original transaction has been voided</entry>
+    </row>
+    <row>
+     <entry>1802</entry>
+     <entry>Missing fields</entry>
+    </row>
+    <row>
+     <entry>1803</entry>
+     <entry>Extra fields exist</entry>
+    </row>
+    <row>
+     <entry>1804</entry>
+     <entry>Invalid card number</entry>
+    </row>
+    <row>
+     <entry>1806</entry>
+     <entry>Card not active</entry>
+    </row>
+    <row>
+     <entry>1808</entry>
+     <entry>Card not configured</entry>
+    </row>
+    <row>
+     <entry>1810</entry>
+     <entry>Invalid amount</entry>
+    </row>
+    <row>
+     <entry>1811</entry>
+     <entry>System Error, Database</entry>
+    </row>
+    <row>
+     <entry>1812</entry>
+     <entry>System Error, Transaction</entry>
+    </row>
+    <row>
+     <entry>1813</entry>
+     <entry>Cardholder not active</entry>
+    </row>
+    <row>
+     <entry>1814</entry>
+     <entry>Cardholder not configured</entry>
+    </row>
+    <row>
+     <entry>1815</entry>
+     <entry>CardHolder expired</entry>
+    </row>
+    <row>
+     <entry>1816</entry>
+     <entry>Original not found</entry>
+    </row>
+    <row>
+     <entry>1817</entry>
+     <entry>Usage Limit Reached</entry>
+    </row>
+    <row>
+     <entry>1818</entry>
+     <entry>Configuration error</entry>
+    </row>
+    <row>
+     <entry>1819</entry>
+     <entry>Invalid terminal</entry>
+    </row>
+    <row>
+     <entry>1820</entry>
+     <entry>Inactive terminal</entry>
+    </row>
+    <row>
+     <entry>1821</entry>
+     <entry>Invalid merchant</entry>
+    </row>
+    <row>
+     <entry>1822</entry>
+     <entry>Duplicate entity</entry>
+    </row>
+    <row>
+     <entry>1823</entry>
+     <entry>Invalid Acquirer</entry>
+    </row>   
+   </tbody>
+  </tgroup>
+ </table>
+</appendix>

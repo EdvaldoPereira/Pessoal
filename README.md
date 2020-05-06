@@ -1,2 +1,2 @@
-# jPOS-CMF
+- `mvn package` generates jPOS-CMF.pdf
 
