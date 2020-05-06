@@ -50,27 +50,28 @@ build:
     paths:
       - release.version
       - release.artifactId
+      - target/doc/pdf/*.pdf
       - target/*.jar
       - target/lib/
   only:
     - master
 
-deploy:
-  image: docker
-  stage: deploy
-  services:
-    - docker:dind
-  before_script:
-    - docker info
-    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-  script:
-    - NAME="$(cat release.artifactId)"
-    - TAG="$(cat release.version)"
-    - docker build -t "$CI_REGISTRY_IMAGE/$NAME:$TAG" -t "$CI_REGISTRY_IMAGE/$NAME" .
-    - docker push "$CI_REGISTRY_IMAGE/$NAME"
-  needs:
-    - job: build
-      artifacts: true
-  cache: {} # no cache
-  only:
-    - master
+#deploy:
+#  image: docker
+#  stage: deploy
+#  services:
+#    - docker:dind
+#  before_script:
+#    - docker info
+#    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+#  script:
+#    - NAME="$(cat release.artifactId)"
+#    - TAG="$(cat release.version)"
+#    - docker build -t "$CI_REGISTRY_IMAGE/$NAME:$TAG" -t "$CI_REGISTRY_IMAGE/$NAME" .
+#    - docker push "$CI_REGISTRY_IMAGE/$NAME"
+#  needs:
+#    - job: build
+#      artifacts: true
+#  cache: {} # no cache
+#  only:
+#    - master
