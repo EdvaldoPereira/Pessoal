@@ -501,6 +501,46 @@
    </itemizedlist>
   </simplesect>
  </sect1>
+ <sect1 xml:id="S.de_009">
+  <title xml:id="de_009">DE-009 Conversation rate, Settlement</title>
+  <indexterm>
+   <primary>Data Elements</primary>
+   <secondary>DE 009, Conversation rate, Settlement</secondary>
+  </indexterm>
+  <simplesect>
+   <title>Data Element: 9</title>
+   <para/>
+  </simplesect>
+  <simplesect>
+   <title>Format: N08</title>
+   <para/>
+  </simplesect>
+  <simplesect>
+   <title>Description</title>
+   <para>Is the factor used in the conversion from transaction to settlement amount.
+   </para>
+  </simplesect>
+ </sect1>
+ <sect1 xml:id="S.de_010">
+  <title xml:id="de_010">DE-010 Conversation rate, Cardholder Billing</title>
+  <indexterm>
+   <primary>Data Elements</primary>
+   <secondary>DE 010, Conversation rate, Cardholder Billing</secondary>
+  </indexterm>
+  <simplesect>
+   <title>Data Element: 10</title>
+   <para/>
+  </simplesect>
+  <simplesect>
+   <title>Format: N08</title>
+   <para/>
+  </simplesect>
+  <simplesect>
+   <title>Description</title>
+   <para>Is the factor used in the conversion from transaction to Cardholder billing amount.
+   </para>
+  </simplesect>
+ </sect1>
  <sect1 xml:id="S.de_011">
   <title xml:id="de_011">DE-011 System Trace Audit Number (STAN)</title>
   <indexterm>
@@ -600,6 +640,27 @@
    <para> 
       Settlement date in CCYYMMDD format.
     </para>
+  </simplesect>
+ </sect1>
+ <sect1 xml:id="S.de_016">
+  <title xml:id="de_016">DE-016 Date, Conversation</title>
+  <indexterm>
+   <primary>Data Elements</primary>
+   <secondary>DE 016, Date, Conversation</secondary>
+  </indexterm>
+  <simplesect>
+   <title>Data Element: 16</title>
+   <para/>
+  </simplesect>
+  <simplesect>
+   <title>Format: N4</title>
+   <para/>
+  </simplesect>
+  <simplesect>
+   <title>Description</title>
+   <para>Indicates the effective date of DE 9 (Conversion Rate, Settlement) and also
+    DE 10 (Conversion Rate, Cardholder Billing) Whenever these data elements are present within a message.
+   </para>
   </simplesect>
  </sect1>
  <sect1 xml:id="S.de_017">
@@ -3578,6 +3639,304 @@
    <title>Description</title>
    <para>Contains data from the originator of the message that shall be returned unaltered in a
     response message. </para>
+  </simplesect>
+ </sect1>
+ <sect1 xml:id="S.de_061">
+  <title xml:id="de_061">DE-061 Capture Information</title>
+  <indexterm>
+   <primary>Data Elements</primary>
+   <secondary>DE 061, Capture Information</secondary>
+  </indexterm>
+  <simplesect>
+   <title>Data Element: 61</title>
+   <para/>
+  </simplesect>
+  <simplesect>
+   <title>Format: AN..26, LLLVAR</title>
+   <para/>
+  </simplesect>
+  <simplesect>
+   <title>Description</title>
+   <para> Indicates the conditions that exist at the point of service at the time of the transaction.
+   </para>
+   <table frame="topbot">
+    <title>DE 61 subfields</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+     <colspec colname="name"/>
+     <colspec colname="format" colwidth="2*"/>
+     <thead>
+      <row>
+       <entry>Name</entry>
+       <entry>Format</entry>
+      </row>
+     </thead>
+     <tbody>
+      <row>
+       <entry>POS Terminal Attendance</entry>
+       <entry>
+        <para> N1 <itemizedlist>
+         <listitem>
+          <para><emphasis role="bold">0</emphasis> Attended Terminal </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">1</emphasis> Unattended terminal (cardholder-activated terminal [CAT], home PC, mobile phone, PDA) </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">2</emphasis> No terminal used (voice/audio response unit(ARU) authorization) </para>
+         </listitem>
+
+        </itemizedlist></para>
+       </entry>
+      </row>
+      <row>
+       <entry>Reserved for Future Use</entry>
+       <entry>N1</entry>
+      </row>
+
+      <row>
+       <entry>POS Terminal Location</entry>
+       <entry>
+        <para> N1 <itemizedlist>
+         <listitem>
+          <para><emphasis role="bold">0</emphasis> On premises of card acceptor facility </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">1</emphasis> Off premises of card acceptor facility (merchant terminal-remote location) </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">2</emphasis> Off premises of card acceptor facility (carholder terminal including home PC, mobile phone, PDA)</para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">3</emphasis> No terminal used (voice/ARU authorization)</para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">4</emphasis> On premises of card aceeptor facility (cardholder terminal incluing home PC, mobile phone, PDA)</para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">6</emphasis> Off cardholder premises, unattended </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">8</emphasis> Additional POS Terminal Locations </para>
+         </listitem>
+
+        </itemizedlist></para>
+       </entry>
+      </row>
+
+      <row>
+       <entry>POS Cardholder Presence</entry>
+       <entry>
+        <para> N1 <itemizedlist>
+         <listitem>
+          <para><emphasis role="bold">0</emphasis> Cardholder present </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">1</emphasis> Cardholder not present, unspecified </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">2</emphasis> Cardholder not present (mail/facsimile order)</para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">3</emphasis> Cardholder not present (phone or Automated Response Unit (ARU))</para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">4</emphasis> Standing order/recurring transactions</para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">5</emphasis> Cardholder not present (Eletronic order (home PC, Internet, mobile phone, PDA)) </para>
+         </listitem>
+
+        </itemizedlist></para>
+       </entry>
+      </row>
+
+      <row>
+       <entry>POS Card Presence</entry>
+       <entry>
+        <para> N1 <itemizedlist>
+         <listitem>
+          <para><emphasis role="bold">0</emphasis> Card present </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">1</emphasis> Card not present </para>
+         </listitem>
+        </itemizedlist></para>
+       </entry>
+      </row>
+
+      <row>
+       <entry>POS Card Capture Capabilities</entry>
+       <entry>
+        <para> N1 <itemizedlist>
+         <listitem>
+          <para><emphasis role="bold">0</emphasis> Terminal/operator does not have card capture capability </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">1</emphasis> Terminal/operator has card capture capability </para>
+         </listitem>
+        </itemizedlist></para>
+       </entry>
+      </row>
+
+      <row>
+       <entry>POS Transaction Status</entry>
+       <entry>
+        <para> N1 <itemizedlist>
+         <listitem>
+          <para><emphasis role="bold">0</emphasis> Normal request </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">2</emphasis> SecureCode Phone Order </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">3</emphasis> ATM installment inquiry </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">4</emphasis> Preauthorization request </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">5</emphasis> Time Based Payment Authorization Request </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">6</emphasis> ATC Update </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">8</emphasis> Account Status Inquiry Service (ASI) </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">9</emphasis> Tokenization Request/Notification </para>
+         </listitem>
+        </itemizedlist></para>
+       </entry>
+      </row>
+
+      <row>
+       <entry>POS Transaction Security</entry>
+       <entry>
+        <para> N1 <itemizedlist>
+         <listitem>
+          <para><emphasis role="bold">0</emphasis> No security concern </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">1</emphasis> Suspected fraud </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">2</emphasis> ID verified </para>
+         </listitem>
+        </itemizedlist></para>
+       </entry>
+      </row>
+
+      <row>
+       <entry>Reserved for Future Use</entry>
+       <entry>N1</entry>
+      </row>
+
+      <row>
+       <entry>Cardholder-Activated Terminal Level</entry>
+       <entry>
+        <para> N1 <itemizedlist>
+         <listitem>
+          <para><emphasis role="bold">0</emphasis> Not a CAT transaction </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">1</emphasis> Authorized Level 1 CAT: Automated dispensing machine with PIN </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">2</emphasis> Authorized Level 2 CAT: Self-service terminal </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">3</emphasis> Authorized Level 3 CAT: Limited-amount terminal </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">4</emphasis> Authorized Level 4 CAT: in-flight commerce</para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">5</emphasis> Reserved </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">6</emphasis> Authorized Level 6 CAT: Eletronic commerce </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">7</emphasis> Authorized Level 7 CAT: Tranponder transaction</para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">9</emphasis> MPOS acceptance Device </para>
+         </listitem>
+        </itemizedlist></para>
+       </entry>
+      </row>
+
+      <row>
+       <entry>POS Card Data Terminal Input Capability Indicator</entry>
+       <entry>
+        <para> N1 <itemizedlist>
+         <listitem>
+          <para><emphasis role="bold">0</emphasis> Input capability unknown or unspecified </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">1</emphasis> No terminal used </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">2</emphasis> Terminal supports magnetic stripe input only </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">3</emphasis> Contactless EMV/Chip (Proximity Chip) Terminal supports contactless
+           EMV input and contatctless magstripe input </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">4</emphasis> Contactless Mag Stripe (Proximity Chip) Terminal supports contactless
+           magstripe input but not conctalles EMV input</para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">5</emphasis> Terminal supports EMV contact chip input and magnetic stripe input </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">6</emphasis> Terminal supports key entry input only </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">7</emphasis> Terminal supoorts magnetic stripe input and key entry input</para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">8</emphasis> Terminal supports EMV contact chip input, magnetic stripe input and key entry input </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">9</emphasis> Terminal supports EMV contact chip input only </para>
+         </listitem>
+        </itemizedlist></para>
+       </entry>
+      </row>
+
+      <row>
+       <entry>POS Authorization Life Cycle</entry>
+       <entry>
+        <para>N2</para>
+        <para>Indicates the number of days a preauthorization will stay in effect, otherwise it must contain zeros
+        </para>
+       </entry>
+      </row>
+
+      <row>
+       <entry>POS Country Code (or Sub-Merchant Information, if applicable)</entry>
+       <entry>
+        <para>N3</para>
+        <para>Indicates the country of the POS location (not the acquirer location) using ISO-specified codes
+        </para>
+       </entry>
+      </row>
+
+      <row>
+       <entry>POS Postal Code (or Sub-Merchant Information, if applicable)</entry>
+       <entry>
+        <para>ANS ...10</para>
+        <para>Indicates the geographic code of the POS (merchant) location (not the acquirer's location)
+        </para>
+       </entry>
+      </row>
+
+     </tbody>
+    </tgroup>
+   </table>
   </simplesect>
  </sect1>
  <sect1 xml:id="S.de_063">
