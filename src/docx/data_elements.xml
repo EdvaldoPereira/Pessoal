@@ -2897,6 +2897,103 @@
    </para>
   </simplesect>
  </sect1>
+
+ <sect1 xml:id="S.de_027">
+  <title xml:id="de_027">DE-027 Transaction Identifier</title>
+  <indexterm>
+   <primary>Data Elements</primary>
+   <secondary>DE 027, Transaction Identifier</secondary>
+  </indexterm>
+  <simplesect>
+   <title>Data Element: 27</title>
+   <para/>
+  </simplesect>
+  <simplesect>
+   <title>Format: N10</title>
+   <para/>
+  </simplesect>
+  <simplesect>
+   <title>Description</title>
+   <para> Transaction Identifier in BBBPPTTTTN format.
+   </para>
+   <table frame="topbot">
+    <title>DE 27 subfields</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+     <colspec colname="name"/>
+     <colspec colname="format" colwidth="2*"/>
+     <thead>
+      <row>
+       <entry>Name</entry>
+       <entry>Format</entry>
+      </row>
+     </thead>
+     <tbody>
+      <row>
+       <entry> Brand (BBB)</entry>
+       <entry>
+        <para> N3 <itemizedlist>
+         <listitem>
+          <para><emphasis role="bold">001 - </emphasis> VISA </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">002 - </emphasis> Mastercard </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">003 - </emphasis> ELO </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">004 - </emphasis> Cabal </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">005 - </emphasis> Hiper </para>
+         </listitem>
+
+        </itemizedlist></para>
+       </entry>
+      </row>
+
+      <row>
+       <entry> Product (PP) </entry>
+       <entry>
+        <para> N2 <itemizedlist>
+         <listitem>
+          <para><emphasis role="bold">01 - </emphasis> Debit </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">02 - </emphasis> Credit </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">03 - </emphasis> Voucher</para>
+         </listitem>
+        </itemizedlist></para>
+       </entry>
+      </row>
+
+      <row>
+       <entry> Transaction Type (TTTT) </entry>
+       <entry>N4</entry>
+      </row>
+
+      <row>
+       <entry> Nationality </entry>
+       <entry>
+        <para> N1 <itemizedlist>
+         <listitem>
+          <para><emphasis role="bold">1 - </emphasis> National </para>
+         </listitem>
+         <listitem>
+          <para><emphasis role="bold">2 - </emphasis> International </para>
+         </listitem>
+        </itemizedlist></para>
+       </entry>
+      </row>
+
+     </tbody>
+    </tgroup>
+   </table>
+  </simplesect>
+ </sect1>
+
  <sect1 xml:id="S.de_030">
   <title xml:id="de_030">DE-030 Amounts original</title>
   <indexterm>
