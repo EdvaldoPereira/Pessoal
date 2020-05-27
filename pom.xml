@@ -3,13 +3,13 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>jpos.org</groupId>
   <artifactId>jpos-cmf</artifactId>
-  <version>1.0.17</version>
+  <version>1.0.18-SNAPSHOT</version>
   <name>jPOS-CMF</name>
   <packaging>pom</packaging>
 
   <scm>
     <connection>scm:git:https://gitlab.com/bit55/apps/authorization/jpos-cmf.git</connection>
-    <tag>v1.0.17</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <build>
