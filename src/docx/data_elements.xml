@@ -2929,7 +2929,7 @@
      </thead>
      <tbody>
       <row>
-       <entry> Brand (BBB)</entry>
+       <entry> Payment Scheme (BBB)</entry>
        <entry>
         <para> N3 <itemizedlist>
          <listitem>
@@ -3397,6 +3397,79 @@
    </table>
   </simplesect>
  </sect1>
+
+
+ <sect1 xml:id="S.de_048">
+  <title xml:id="de_048">DE-048 Additional Information For Destination</title>
+  <indexterm>
+   <primary>Data Elements</primary>
+   <secondary>DE 048, Additional Information For Destination</secondary>
+  </indexterm>
+  <simplesect>
+   <title>Data Element: 48</title>
+   <para/>
+  </simplesect>
+  <simplesect>
+   <title>Format: TLV TAG Length Value</title>
+   <para/>
+  </simplesect>
+  <simplesect>
+   <title>Description</title>
+   <para> Additional Information For Destination
+   </para>
+   <table frame="topbot">
+    <title>List of DE 48 Subelements</title>
+    <tgroup cols="3" align="left" colsep="1" rowsep="1">
+     <colspec colname="tag" colwidth="0.5*" align="center" />
+     <colspec colname="name" colwidth="2*" />
+     <colspec colname="representation" colwidth="2*" />
+     <thead>
+      <row>
+       <entry>TAG</entry>
+       <entry>Name</entry>
+       <entry>Data Representation</entry>
+      </row>
+     </thead>
+     <tbody>
+      <row>
+       <entry> 11 </entry>
+       <entry> Key Exchange Block Data </entry>
+       <entry> an-54 </entry>
+      </row>
+
+      <row>
+       <entry> 12 </entry>
+       <entry> Network Data </entry>
+       <entry> ans...99 </entry>
+      </row>
+
+      <row>
+       <entry> 13 </entry>
+       <entry> Payment Scheme MTI </entry>
+       <entry> an-4 </entry>
+      </row>
+
+      <row>
+       <entry> 14 </entry>
+       <entry> Payment Scheme Processing Code </entry>
+       <entry> an-6 </entry>
+      </row>
+
+      <row>
+       <entry> 15 </entry>
+       <entry> Payment Scheme Entry Mode </entry>
+       <entry> an-4 </entry>
+      </row>
+
+     </tbody>
+    </tgroup>
+   </table>
+  </simplesect>
+ </sect1>
+
+
+
+
  <sect1 xml:id="S.de_049">
   <title xml:id="de_049">DE-049 Verification data</title>
   <indexterm>
