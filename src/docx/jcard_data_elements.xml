@@ -551,6 +551,90 @@
    </para>
   </simplesect>
  </sect1>
+
+ <sect1 xml:id="S.de_113.30">
+  <title xml:id="de_113.30">DE-113.30 Installment Information in Response</title>
+  <indexterm>
+   <primary>Data Elements</primary>
+   <secondary>DE 113.30 - Installment Information in Response</secondary>
+  </indexterm>
+  <simplesect>
+   <title>Data Element: 113.30</title>
+   <para/>
+  </simplesect>
+  <simplesect>
+   <title>Format: N60</title>
+   <para/>
+  </simplesect>
+  <simplesect>
+   <title>Description</title>
+   <para>
+    Used to specify installment information in the response transaction.
+   </para>
+
+   <table frame="topbot">
+    <title>List of information DE 113.30</title>
+    <tgroup cols="3" align="left" colsep="1" rowsep="1">
+     <colspec colname="tag" colwidth="0.5*" align="center" />
+     <colspec colname="name" colwidth="2*" />
+     <colspec colname="representation" colwidth="2*" />
+     <thead>
+      <row>
+       <entry>Position</entry>
+       <entry>Attribute</entry>
+       <entry>Description</entry>
+      </row>
+     </thead>
+     <tbody>
+      <row>
+       <entry> 1-2 </entry>
+       <entry> Number of Installments </entry>
+       <entry> N2 </entry>
+      </row>
+
+      <row>
+       <entry> 3-7 </entry>
+       <entry> Interest Rate </entry>
+       <entry> N5 </entry>
+      </row>
+
+      <row>
+       <entry> 8-19 </entry>
+       <entry> Fee Amount </entry>
+       <entry> N12 </entry>
+      </row>
+
+      <row>
+       <entry> 20-24 </entry>
+       <entry> CET Yearly </entry>
+       <entry> N5 </entry>
+      </row>
+
+      <row>
+       <entry> 25-36 </entry>
+       <entry> First Installment Amount </entry>
+       <entry> N12 </entry>
+      </row>
+
+      <row>
+       <entry> 37-48 </entry>
+       <entry> Installments Amount </entry>
+       <entry> N12 </entry>
+      </row>
+
+      <row>
+       <entry> 49-60 </entry>
+       <entry> Amount Final </entry>
+       <entry> N12 </entry>
+      </row>
+
+     </tbody>
+    </tgroup>
+   </table>
+
+  </simplesect>
+ </sect1>
+
  <sect1 xml:id="S.de_113.39">
   <title xml:id="de_113.39">DE-113.39 Remote Result Code</title>
   <indexterm>
